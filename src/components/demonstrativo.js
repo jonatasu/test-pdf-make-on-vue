@@ -12,10 +12,12 @@ export const pdfTemplate = (msg) => {
                   table: {
                     widths: ["*"],
                     border: [false, false, false, false],
+                    fillColor: 'blue',
                     body: [
                       [
                         {
                           border: [false, false, false, false],
+                          fillColor: 'red',
                           text: [
                             {
                               text: "Ministério da Fazenda",
@@ -25,7 +27,7 @@ export const pdfTemplate = (msg) => {
                         }
                       ]
                     ]
-                  }
+                  },
                 }
               ],
               [
@@ -59,11 +61,8 @@ export const pdfTemplate = (msg) => {
           ]
         },
         layout: {
-          hLineColor() {
-            return "#dddddd";
-          },
-          vLineColor() {
-            return "#dddddd";
+          fillColor: function (rowIndex) {
+            return (rowIndex === 0) ? 'blue' : 'white';
           }
         }
       },
